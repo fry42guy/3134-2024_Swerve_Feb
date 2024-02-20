@@ -102,20 +102,20 @@ public class RobotContainer
     // controls are front-left positive
     // left stick controls translation
     // right stick controls the angular velocity of the robot
-                              // Command driveFieldOrientedAnglularVelocity = drivebase.driveCommand(
-                              //     () -> MathUtil.applyDeadband(driverXbox.getLeftY(), OperatorConstants.LEFT_Y_DEADBAND),
-                              //     () -> MathUtil.applyDeadband(driverXbox.getLeftX(), OperatorConstants.LEFT_X_DEADBAND),
-                              //     () -> driverXbox.getRawAxis(2));
+                              Command driveFieldOrientedAnglularVelocity = drivebase.driveCommand(
+                                  () -> MathUtil.applyDeadband(m_driverController.getLeftY(), OperatorConstants.LEFT_Y_DEADBAND),
+                                  () -> MathUtil.applyDeadband(m_driverController.getLeftX(), OperatorConstants.LEFT_X_DEADBAND),
+                                  () -> m_driverController.getRawAxis(2));
 
-                            // Command driveFieldOrientedDirectAngleSim = drivebase.simDriveCommand(
-                            //     () -> MathUtil.applyDeadband(driverXbox.getLeftY(), OperatorConstants.LEFT_Y_DEADBAND),
-                            //     () -> MathUtil.applyDeadband(driverXbox.getLeftX(), OperatorConstants.LEFT_X_DEADBAND),
-                            //     () -> driverXbox.getRawAxis(2));
+                            Command driveFieldOrientedDirectAngleSim = drivebase.simDriveCommand(
+                                () -> MathUtil.applyDeadband(m_driverController.getLeftY(), OperatorConstants.LEFT_Y_DEADBAND),
+                                () -> MathUtil.applyDeadband(m_driverController.getLeftX(), OperatorConstants.LEFT_X_DEADBAND),
+                                () -> m_driverController.getRawAxis(2));
 
 Command drive3134Normal = drivebase.driveCommand(
   () -> MathUtil.applyDeadband(m_driverController.getLeftY(), OperatorConstants.LEFT_Y_DEADBAND),
         () -> MathUtil.applyDeadband(m_driverController.getLeftX(), OperatorConstants.LEFT_X_DEADBAND),
-        () -> -MathUtil.applyDeadband(m_driverController.getRightX(), OperatorConstants.LEFT_X_DEADBAND));
+        () -> MathUtil.applyDeadband(m_driverController.getRightX(), OperatorConstants.LEFT_X_DEADBAND));
 
 
 
